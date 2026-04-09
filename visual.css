@@ -1,0 +1,258 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primaria: #d8d7ce;
+    --secundaria: #00d1ff;
+    --escuro: #0b1120;
+    --maisEscuro: #222831;
+    --claro:#e2e8f0;
+    --vidro: rgba(255,255,255,0.1);
+}
+
+body {
+    background-color: var(--escuro);
+    color: var(--claro);
+}
+
+.navegacao {
+    position: fixed;
+    top: 0;
+    background: var(--maisEscuro);
+    width: 100%;
+    z-index: 100;
+    padding: 1.5rem;
+   
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.layout-duplo{
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 40px;
+padding: 20px;
+align-items: start;
+}
+
+
+.link {
+    text-decoration: none;
+    color: var(--claro);
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.link::after {
+    content: '';
+    height: 2px;
+    width: 0;              /*efeito sobre os links no menu*/
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, var(--primaria), var(--secundaria));
+    transition: width 0.5s ease;
+}
+
+.link:hover::after {
+    width: 100%;
+}
+
+.comeco {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.foto {
+    width: 200px;
+    height: 200px;
+    box-shadow: 0 0 20px var(--secundaria);
+    border-radius: 50%;
+    border:4px solid var(--vidro);
+    animation: flutuar 5s ease-in-out infinite;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--secundaria);
+    font-weight: bold;
+    margin: 20px;
+}
+
+p {
+    font-size: 1rem;
+    color: var(--claro);
+}
+
+h2 {
+   text-align: center;
+   font-size: 2.5rem;
+   margin-bottom: 50px;
+   color: var(--secundaria);
+}
+
+h3 {
+    font-size: 1.5rem;
+    color:var(--secundaria);
+}
+
+.sobre {
+    padding: 4rem 2rem;
+}
+
+.cardSobre {
+     display: flex;
+    height: auto;
+    padding: 2rem;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;               /* card da aba "Sobre mim" */
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--vidro);
+    background: var(--maisEscuro);
+    flex-direction: column;
+    overflow: visible;
+    overflow-wrap: break-word;
+    transition: all 0.20s ease;
+    cursor: pointer;
+}
+
+.cardparag {
+    text-align: center;
+    font-size: 1rem;
+}
+
+
+.projeto {
+   padding: 6rem 2rem;
+} 
+ 
+
+.caixa {
+   display: grid;
+   grid-template-rows: auto;
+   gap: 30px;
+   max-width: 1000px;             /* grade que organiza os cards */
+   margin: 0 auto;
+   justify-content: center;
+   width: 100%;
+}
+
+
+.card {
+    display: flex;          
+    height: auto;           
+    padding: 0;
+    max-width: 750px;
+    margin: 0 auto;
+    border-radius: 16px;
+    backdrop-filter: blur(5px);        /* card das informações dos projetos */
+    border: 1px solid var(--vidro);
+    background: var(--maisEscuro);
+    flex-direction: column;
+    overflow: visible;      
+    overflow-wrap: break-word;
+    transition: all 0.20s ease;
+    cursor: pointer;
+}
+
+.tecnologias {
+    margin-top: 12rem;
+    padding: 5rem 0;
+    width: 75%;
+    background:var(--maisEscuro);
+    border:1px solid var(--vidro);
+    border-radius: 16px;
+    text-align: center;             
+    margin-inline: auto;
+    margin-bottom: 4rem;
+}
+
+.tecno {
+    display: flex;
+    margin-top: 2rem;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+
+}
+
+.tecs {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    flex: 1;
+}
+
+.imgproj {
+    height: 400px;        
+    width: 100%;
+    object-fit: contain;  
+    object-position: center;
+    background-color: var(--escuro); 
+    border-radius: 8px;
+}
+
+.imgproj:hover {
+    box-shadow: 0 10px 20px var(--secundaria);
+    transform: translateY(-10px) scale(1.03);
+}
+
+.espaco {
+    padding: 1.5rem 2rem;
+}
+
+.info {
+   margin-bottom: 5px;
+}
+
+.paragrafo {
+    color: rgba(226, 232, 240, 0.8);  
+    line-height: 1.6rem;   
+    font-size: 1rem;            
+    overflow-wrap: break-word;
+    word-break: break-word;            
+    white-space: normal;               
+}
+
+
+
+.particulas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;            /* "efeito de luz" nas partes superiores e inferiores da tela */
+    height: 100%;
+    z-index: -1;
+    opacity: 0.2;
+    background: radial-gradient(circle at 10% 20%, var(--primaria) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, var(--secundaria) 0%, transparent 20%),
+    var(--maisEscuro);            
+}
+
+@keyframes flutuar {
+    0%, 100% {
+        transform: translateY(0);   /* fotos de perfil flutuando levemente */
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
